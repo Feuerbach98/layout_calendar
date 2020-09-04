@@ -1,11 +1,5 @@
-$cellColor: #fff;
-$cellSize: 100px;
-$cellMargin: 1px;
-
-@mixin centered {
-  margin-left: auto;
-  margin-right: auto;
-}
+@import "vars";
+@import "calendar";
 
 *,
 ::before,
@@ -20,53 +14,4 @@ html {
 
 body {
   margin: 0;
-}
-
-.calendar {
-  @include centered;
-  width: $cellMargin*7 + $cellSize*7;
-  display: flex;
-  flex-wrap: wrap;
-
-  & > div {
-    height: $cellSize;
-    width: $cellSize;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: solid 1px black;
-    margin-right: $cellMargin;
-    margin-bottom: $cellMargin;
-  }
-}
-
-@for $i from 1 through 31 {
-  .calendar > div:nth-child(#{$i})::before {
-    content: "#{$i}";
-  }
-}
-
-$days:
-  0 mon,
-  1 tue,
-  2 wed,
-  3 thu,
-  4 fri,
-  5 sat,
-  6 sun;
-
-@each $number, $day in $days {
-
-  .calendar-#{$day} > div:nth-child(1) {
-    margin-left: #{$number*($cellMargin+$cellSize)};
-  }
-
-}
-
-@for $i from 28 through 31 {
-  .calendar-#{$i} {
-    & > div:nth-child(n + #{$i + 1}) {
-      display: none;
-    }
-  }
 }
