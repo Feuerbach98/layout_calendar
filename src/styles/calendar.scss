@@ -1,19 +1,23 @@
 .calendar {
   @include centered;
-  width: $calendarWidth;
   display: flex;
   flex-wrap: wrap;
+
+  width: $calendarWidth;
   padding-top: 50px;
 
   & div {
-    height: $cellSize;
-    width: $cellSize;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px black;
+
+    width: $cellSize;
+    height: $cellSize;
     margin-right: $cellMargin;
     margin-bottom: $cellMargin;
+
+    border: solid 1px black;
+
     transition: background-color 0.5s, transform 0.5s;
 
     &:hover {
